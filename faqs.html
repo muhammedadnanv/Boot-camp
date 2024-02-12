@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boot Camp FAQs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+ <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #333;
+            --main-color: #ff1717;
+            --white-color: #fdfdfd;
+            --shadow-color: rgba(0, 0, 0, .2);
+        }
+
+        *::selection {
+            background: var(--main-color);
+            color: var(--bg-color);
+        }
+
+        .dark-mode {
+            --bg-color: #0b061f;
+            --text-color: #fdfdfd;
+            --shadow-color: rgba(0, 0, 0, .7);
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 7%;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            z-index: 100;
+            transition: .5s;
+        }
+
+        .header.sticky {
+            background: var(--bg-color);
+            box-shadow: 0 .1rem 1rem var(--shadow-color);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--main-color);
+            font-weight: 600;
+            margin-right: auto;
+        }
+
+        .navbar a {
+            position: relative;
+            font-size: 1.7rem;
+            color: var(--white-color);
+            font-weight: 500;
+            margin-right: 3.5rem;
+        }
+
+        .header.sticky .navbar a {
+            color: var(--text-color);
+        }
+
+        .header.sticky .navbar a.active {
+            color: var(--main-color);
+        }
+
+        .navbar a.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: .2rem;
+            background: var(--white-color);
+        }
+
+        .header.sticky .navbar a::before {
+            background: var(--main-color);
+            opacity: .7;
+        }
+
+        #darkMode-icon {
+            font-size: 2.4rem;
+            color: var(--white-color);
+            cursor: pointer;
+        }
+
+        .header.sticky #darkMode-icon {
+            color: var(--text-color);
+            opacity: .9;
+        }
+
+        #menu-icon {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            display: none;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 7% 2rem;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .question {
+            background-color: var(--white-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .question:hover {
+            transform: translateY(-5px);
+        }
+
+        .question h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .question p {
+            font-size: 1.6rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 7%;
+            background: var(--main-color);
+            color: var(--white-color);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .footer p {
+            font-size: 1.6rem;
+            text-align: center;
+        }
+
+        .footer-iconTop a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem;
+            background: var(--white-color);
+            border-radius: .8rem;
+            border: .2rem solid var(--main-color);
+            outline: .2rem solid transparent;
+            transition: .5s ease;
+            margin-left: 1rem;
+        }
+
+        .footer-iconTop a:hover {
+            outline-color: var(--white-color);
+        }
+
+        .footer-iconTop a i {
+            font-size: 2.4rem;
+            color: #333;
+        }
+    </style>
+<body>
+
+    <header class="header">
+        <div class="logo">Boot Camp FAQs</div>
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+        <i id="darkMode-icon" class='bx bx-moon'></i>
+        <i id="menu-icon" class='bx bx-menu'></i>
+    </header>
+
+    <section class="faq-section">
+        <h2>Got questions? We've got answers! Check out our FAQs below:</h2>
+        <div class="faq">
+            <div class="question">
+                <h3>How do I enroll in the boot camp?</h3>
+                <p>To enroll in our boot camp, simply visit our website and fill out the enrollment form. Once you've
+                    submitted your application, one of our admissions counselors will be in touch to guide you through
+                    the next steps.</p>
+            </div>
+            <div class="question">
+                <h3>What is the duration of the boot camp?</h3>
+                <p>The duration of our boot camp varies depending on the course you choose. Most courses are designed to
+                    be completed within a few months, but some may take longer.</p>
+            </div>
+            <div class="question">
+                <h3>Do I need any prior coding experience?</h3>
+                <p>No prior coding experience is required to enroll in our boot camp. We offer courses for beginners as
+                    well as more advanced coders looking to expand their skills.</p>
+            </div>
+          <div class="question">
+    <h3>What is the duration of the boot camp?</h3>
+    <p>The duration of our boot camp varies depending on the course you choose. Most courses are designed to be completed within a few months, but some may take longer.</p>
+</div>
+
+<div class="question">
+    <h3>Do I need any prior coding experience?</h3>
+    <p>No prior coding experience is required to enroll in our boot camp. We offer courses for beginners as well as more advanced coders looking to expand their skills.</p>
+</div>
+
+<div class="question">
+    <h3>What programming languages do you teach?</h3>
+    <p>We teach a variety of programming languages including JavaScript, Python, HTML/CSS, Java, and more. Our curriculum is designed to provide you with a well-rounded understanding of coding.</p>
+</div>
+
+<div class="question">
+    <h3>Can I work while attending the boot camp?</h3>
+    <p>Many of our students balance their studies with part-time or full-time jobs. Our flexible schedule and online resources make it possible to pursue your coding goals while managing other commitments.</p>
+</div>
+
+<div class="question">
+    <h3>Is financial aid available?</h3>
+    <p>We offer various financial aid options including scholarships, tuition assistance programs, and flexible payment plans. Contact our admissions team to learn more about your eligibility for financial assistance.</p>
+</div>
+
+<div class="question">
+    <h3>What support resources do you offer?</h3>
+    <p>We provide comprehensive support to our students including access to instructors, mentorship programs, tutoring sessions, and a vibrant online community where you can connect with fellow learners.</p>
+</div>
+
+<div class="question">
+    <h3>What career opportunities can I pursue after completing the boot camp?</h3>
+    <p>Our boot camp equips you with the skills and knowledge needed to pursue various career paths in the tech industry. Graduates often secure roles as web developers, software engineers, data analysts, and more.</p>
+</div>
+          <div class="question">
+    <h3>What is the typical time commitment for the boot camp?</h3>
+    <p>The time commitment for our boot camp varies depending on whether you choose the full-time or part-time option. Full-time students typically dedicate around 40 hours per week to their studies, while part-time students typically dedicate around 20 hours per week.</p>
+</div>
+
+<div class="question">
+    <h3>Can I choose between full-time and part-time enrollment?</h3>
+    <p>Yes, we offer both full-time and part-time enrollment options to accommodate different schedules and commitments. You can select the option that best fits your availability and learning goals.</p>
+</div>
+
+<div class="question">
+    <h3>How long does it take to complete the boot camp as a full-time student?</h3>
+    <p>Our full-time boot camp is designed to be completed in approximately [insert duration, e.g., 12 weeks]. During this time, you'll engage in intensive coursework and hands-on projects to build your skills rapidly.</p>
+</div>
+
+<div class="question">
+    <h3>What is the duration of the part-time boot camp?</h3>
+    <p>The part-time boot camp is designed to accommodate students who have other commitments such as work or school. It typically takes around [insert duration, e.g., 24 weeks] to complete the program on a part-time basis.</p>
+</div>
+
+<div class="question">
+    <h3>Are there specific start dates for the boot camp?</h3>
+    <p>Yes, we have regular cohorts with specific start dates throughout the year for both full-time and part-time enrollment options. You can check our website or contact admissions for upcoming start dates.</p>
+</div>
+
+<div class="question">
+    <h3>Can I switch between full-time and part-time enrollment during the program?</h3>
+    <p>In some cases, students may have the option to switch between full-time and part-time enrollment based on their circumstances. Please speak with our admissions team to discuss your options and any potential implications.</p>
+</div>
+<div class="question">
+    <h3>What is the typical time commitment for the boot camp?</h3>
+    <p>The time commitment for our boot camp varies depending on whether you choose the full-time or part-time option. Full-time students typically dedicate around 40 hours per week to their studies, while part-time students typically dedicate around 20 hours per week.</p>
+</div>
+
+<div class="question">
+    <h3>Can I choose between full-time and part-time enrollment?</h3>
+    <p>Yes, we offer both full-time and part-time enrollment options to accommodate different schedules and commitments. You can select the option that best fits your availability and learning goals.</p>
+</div>
+<div class="question">
+    <h3>Is there an age requirement to join the boot camp?</h3>
+    <p>While there is no strict age requirement, our boot camp is designed for individuals who are [insert minimum age, e.g., 18 years old] or older. We welcome students from diverse age groups and backgrounds who are passionate about learning to code.</p>
+
+</div>
+<div class="question">
+    <h3>How does the boot camp facilitate collaboration between students from different schools?</h3>
+    <p>We encourage collaboration and teamwork by organizing coding teams comprised of students from various educational backgrounds. These teams are carefully curated to foster diversity of thought and skillsets, enhancing the learning experience for all members.</p>
+</div>
+
+<div class="question">
+    <h3>How are coding teams formed?</h3>
+    <p>Upon enrollment, students have the opportunity to indicate their preferences and interests. Based on this information, our team assigns students to coding teams with complementary skills and compatible learning goals. This ensures a balanced and productive team dynamic.</p>
+</div>
+
+<div class="question">
+    <h3>What support is available for coding teams?</h3>
+    <p>Each coding team is assigned a dedicated mentor who provides guidance, support, and feedback throughout the program. Mentors are experienced professionals with expertise in the field of coding and software development, ensuring that teams receive valuable insights and mentorship.</p>
+</div>
+
+<div class="question">
+    <h3>How do mentors support coding teams?</h3>
+    <p>Mentors play a pivotal role in facilitating team collaboration, offering technical assistance, and helping students overcome challenges. They conduct regular check-ins, provide personalized guidance on projects, and foster a supportive learning environment where team members can thrive.</p>
+</div>
+<div class="question">
+    <h3>How does the boot camp facilitate collaboration between students from different schools?</h3>
+    <p>We encourage collaboration and teamwork by organizing coding teams comprised of students from various educational backgrounds. These teams are carefully curated to foster diversity of thought and skillsets, enhancing the learning experience for all members.</p>
+</div>
+
+<div class="question">
+    <h3>How are coding teams formed?</h3>
+    <p>Upon enrollment, students have the opportunity to indicate their preferences and interests. Based on this information, our team assigns students to coding teams with complementary skills and compatible learning goals. This ensures a balanced and productive team dynamic.</p>
+</div>
+
+<div class="question">
+    <h3>What support is available for coding teams?</h3>
+    <p>Each coding team is assigned a dedicated mentor who provides guidance, support, and feedback throughout the program. Mentors are experienced professionals with expertise in the field of coding and software development, ensuring that teams receive valuable insights and mentorship.</p>
+</div>
+
+<div class="question">
+    <h3>How do mentors support coding teams?</h3>
+    <p>Mentors play a pivotal role in facilitating team collaboration, offering technical assistance, and helping students overcome challenges. They conduct regular check-ins, provide personalized guidance on projects, and foster a supportive learning environment where team members can thrive.</p>
+</div>
+
+
+</div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>&copy; 2024 Boot Camp FAQs. All rights reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> <!-- You can add JavaScript functionality here -->
+</body>
+
+</html>
